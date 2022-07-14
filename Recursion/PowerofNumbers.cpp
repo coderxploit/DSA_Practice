@@ -10,14 +10,17 @@ class Solution{
     
     long long power(int N,int R)
     {
-        if(R==1)return N;
+        if(R==1)
+            return N;
         long long x=power(N,R/2);
         x=(x*x)%1000000007;
-        if(R%2!=0)return (N*x)%1000000007;
-        else return x%1000000007;
+        if(R%2!=0)
+            return (N*x)%1000000007;
+        else 
+            return x%1000000007;
         
     }
-
+    
 };
 
 // { Driver Code Starts.
