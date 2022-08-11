@@ -51,6 +51,8 @@ vector<int> findAnagram(string s1,string s2){
     return ans;
 
 }
+
+/*
 vector<int> findAnagram(string s,string p){
 vector<int> ans;
         vector<int> hash(26, 0);
@@ -85,7 +87,7 @@ vector<int> ans;
         }
         return ans;
     }
-
+*/
 int main(){
     string s1 = "cbaebabacd";
     string s2 = "abc";
