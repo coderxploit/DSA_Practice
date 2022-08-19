@@ -4,13 +4,11 @@ using namespace std;
 class Node{
     public:
     int data;
-    Node *next;
-    
+    Node* next;
 
     Node(int data){
         this->data = data;
         this->next = NULL;
-        
     }
 };
 
@@ -50,6 +48,25 @@ void InsertatPosition(int data, int position, Node* &head){
 
 }
 
+void DeleteNode(int position, Node* head){
+    int count = 1;
+    Node* curr = head;
+    if(position == 1){
+        head = head->next;
+        delete(curr);
+        return;
+    }
+    Node* prev = NULL;
+    while(count<=position-1){
+        prev = curr;
+        curr = curr->next;
+        count++;
+    }
+    prev->next = curr->next;
+    delete(curr);
+
+    
+}
 
 void printList(Node* &head){
     Node * temp = head;
@@ -65,5 +82,11 @@ int main(){
     InsertatTail(0, head);
     InsertatPosition(2, 4, head);
     InsertatPosition(1, 5 , head);
+    printList(head);
+    DeleteNode(2, head);
+    cout<<"\n";
+    printList(head);
+    DeleteNode(1, head);
+    cout<<"\n";
     printList(head);
 }
