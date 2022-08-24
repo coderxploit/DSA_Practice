@@ -102,6 +102,8 @@ struct Node
  */
 
 class Solution{
+    //O(N^2) Solution
+    /*
     public:
     //Function to check whether a binary tree is balanced or not.
     
@@ -118,6 +120,40 @@ class Solution{
         if (root==NULL) return 1;
         balence(root);
         return flag;  
+    }
+
+*/
+
+// O(N) Solution
+    private: 
+    pair<bool, int>isBalancedFast(TreeNode* root){
+        pair<bool, int> p = {true, 0};
+        if(root == NULL){
+            return p;
+        }
+        
+        pair<bool, int>left = isBalancedFast(root->left);
+        pair<bool, int>right = isBalancedFast(root->right);
+        
+        bool leftAns = left.first;
+        bool rightAns = right.first;
+        
+        bool diff = abs(left.second - right.second) <= 1;
+        
+        pair<bool, int> ans;
+        ans.second =  max(left.second, right.second)+1; 
+        if(leftAns && rightAns && diff){
+            ans.first = true;
+        }
+        else {
+            ans.first = false;
+        }
+        return ans;
+    }
+    
+    public:
+    bool isBalanced(TreeNode* root) {
+    return isBalancedFast(root).first;
     }
     
 };
