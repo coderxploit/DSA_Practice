@@ -63,11 +63,11 @@ Node* buildTree(string str) {
         // If the right child is not null
         if (currVal != "N") {
 
-            // Create the right child for the current node
-            currNode->right = newNode(stoi(currVal));
+        // Create the right child for the current node
+        currNode->right = newNode(stoi(currVal));
 
-            // Push it to the queue
-            queue.push(currNode->right);
+         // Push it to the queue
+        queue.push(currNode->right);
         }
         i++;
     }
