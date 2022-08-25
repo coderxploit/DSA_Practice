@@ -4,7 +4,7 @@ using namespace std;
 
 /* A binary tree node has data, pointer to left child
    and a pointer to right child */
-struct Node {
+struct Node{
     int data;
     struct Node* left;
     struct Node* right;
@@ -36,7 +36,7 @@ Node* buildTree(string str) {
 
     // Starting from the second element
     int i = 1;
-    while (!queue.empty() && i < ip.size()) {
+    while (!queue.empty() && i < ip.size()){
 
         // Get and remove the front of the queue
         Node* currNode = queue.front();
